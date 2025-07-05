@@ -3,7 +3,7 @@ import replace from '@rollup/plugin-replace';
 import image from '@rollup/plugin-image';
 import url from '@rollup/plugin-url';
 import terser from '@rollup/plugin-terser';
-import copy from 'rollup-plugin-copy2';
+import copy from 'rollup-plugin-copy';
 
 export default {
   input: 'src/index.js',
@@ -22,7 +22,12 @@ export default {
     url(),
     terser(),
     copy({
-      assets: [['index.html', 'public/index.html']],
+      targets: [
+        {src: 'build/index.html', dest: 'public'},
+
+        {src: 'src/styles/index.css', dest: 'public/styles'},
+        {src: 'src/assets/images/**/*', dest: 'public/assets/images'},
+      ],
     }),
   ],
 };
