@@ -22,7 +22,7 @@ export default {
     url(),
     terser(),
     copy({
-      assets: [['index.html', 'index.html']],
+      assets: [['index.html', 'public/index.html']],
     }),
   ],
 };
