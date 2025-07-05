@@ -8,7 +8,7 @@ import copy from 'rollup-plugin-copy2';
 export default {
   input: 'src/index.js',
   output: {
-    dir: 'dist',
+    dir: 'public',
     format: 'es',
     sourcemap: true,
   },
@@ -22,7 +22,7 @@ export default {
     url(),
     terser(),
     copy({
-      assets: [['index.html', 'dist/index.html']],
+      assets: [['index.html', 'index.html']],
     }),
   ],
 };
