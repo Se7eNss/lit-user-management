@@ -1,19 +1,28 @@
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
+import image from '@rollup/plugin-image';
+import url from '@rollup/plugin-url';
+import terser from '@rollup/plugin-terser';
+import copy from 'rollup-plugin-copy2';
 
 export default {
   input: 'src/index.js',
   output: {
-    file: 'bundle.js',
-    format: 'esm',
-  },
-  onwarn(warning) {
-    if (warning.code !== 'THIS_IS_UNDEFINED') {
-      console.error(`(!) ${warning.message}`);
-    }
+    dir: 'dist',
+    format: 'es',
+    sourcemap: true,
   },
   plugins: [
-    replace({preventAssignment: false, 'Reflect.decorate': 'undefined'}),
     resolve(),
+    replace({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+      preventAssignment: true,
+    }),
+    image(),
+    url(),
+    terser(),
+    copy({
+      assets: [['index.html', 'dist/index.html']],
+    }),
   ],
 };

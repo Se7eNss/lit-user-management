@@ -7,7 +7,7 @@
   "module": "src/index.js",
   "type": "module",
   "scripts": {
-    "build": "echo \"This is not a TypeScript project, so no need to build.\"",
+    "build": "rollup -c",
     "lint:eslint": "eslint \"src/**/*.{js,cjs,mjs}\"",
     "lint:fix": "eslint \"src/**/*.{js,cjs,mjs}\" --fix",
     "format": "prettier \"**/*.{cjs,html,js,json,md,ts}\" --ignore-path ./.eslintignore --write",
@@ -50,6 +50,7 @@
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
     "rollup": "^4.18.0",
+    "rollup-plugin-copy2": "^0.4.0",
     "rollup-plugin-summary": "^2.0.1",
     "sinon": "^21.0.0"
   }

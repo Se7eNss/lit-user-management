@@ -1,4 +1,5 @@
 /node_modules/
 /coverage
+/dist
 # only generated for size check
 bundle.js
