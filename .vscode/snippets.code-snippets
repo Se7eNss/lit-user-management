@@ -1,0 +1,31 @@
+{
+  "display": {
+    "scope": "css",
+    "prefix": "df",
+    "body": [
+      "display: ${1|flex,inline-block,block,none|};",
+      "flex-direction: ${2|column,row|};",
+      "justify-content: ${3|flex-start,center,space-between,flex-end|};",
+      "align-items: ${4|flex-start,center,stretch,flex-end|};",
+      "flex-wrap: ${5|wrap,nowrap,wrap-reverse|};"
+    ],
+    "description": "Log output to display"
+  },
+  "fontSize": {
+    "scope": "css",
+    "prefix": "fs",
+    "body": [
+      "${fontSize({ size: $1, ${2:lineHeight: $3,} ${4:letterSpacing: $5,} ${6:align: '$7',} ${8:weight: fontWeight.${9|light,regular,medium,semiBold,bold,black|}} })}"
+    ],
+    "description": "Log output to fontSize"
+  },
+  "mediaQuery": {
+    "scope": "css",
+    "prefix": "mq",
+    "body": ["@media only screen and (min-width: ${breakPoints.${1|phone,tablet,tabletL,desktop|}}) {};"],
+    "description": "Log output to mediaQuery"
+  },
+}
+
+
+
