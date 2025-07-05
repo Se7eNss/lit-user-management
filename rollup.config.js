@@ -25,7 +25,7 @@ export default {
       targets: [
         {src: 'build/index.html', dest: 'public'},
 
-        {src: 'src/styles/index.css', dest: 'public/styles'},
+        {src: 'src/styles', dest: 'public/styles'},
         {src: 'src/assets/images/**/*', dest: 'public/assets/images'},
       ],
     }),
