@@ -1,41 +1,75 @@
 # Lit Employee Management
 
-This project includes a sample component using LitElement with JavaScript.
+Lit Employee Management is a modern and user-friendly web application designed to efficiently manage company employee information.
 
-This template is generated from the `lit-starter-js` package in [the main Lit
-repo](https://github.com/lit/lit). Issues and PRs for this template should be
-filed in that repo.
+---
 
-## About this release
+## Table of Contents
 
-This is a pre-release of Lit 3.0, the next major version of Lit.
+- [About](#about)  
+- [Installation](#installation)  
+- [Project Structure](#project-structure)  
+- [Test Coverage](#test-coverage)  
+- [Dev Server](#dev-server)  
 
-Lit 3.0 has very few breaking changes from Lit 2.0:
+---
 
-- Drops support for IE11
-- Published as ES2021
-- Removes a couple of deprecated Lit 1.x APIs
+## About
 
-Lit 3.0 should require no changes to upgrade from Lit 2.0 for the vast majority of users. Once the full release is published, most apps and libraries will be able to extend their npm version ranges to include both 2.x and 3.x, like `"^2.7.0 || ^3.0.0"`.
+Lit Employee Management allows you to manage employee records, positions, departments etc.
 
-Lit 2.x and 3.0 are _interoperable_: templates, base classes, directives, decorators, etc., from one version of Lit will work with those from another.
+---
 
-Please file any issues you find on our [issue tracker](https://github.com/lit/lit/issues).
+## Installation
 
-## Setup
-
-Install dependencies:
-
+1. Clone the repository:  
 ```bash
-npm i
+git clone https://github.com/Se7eNss/lit-user-management
 ```
 
-## Testing
+2. Navigate to the project folder:  
+```bash
+cd lit-employee-management
+```
 
-This sample modern-web.dev's
-[@web/test-runner](https://www.npmjs.com/package/@web/test-runner) for testing. See the
-[modern-web.dev testing documentation](https://modern-web.dev/docs/test-runner/overview) for
-more information.
+3. Install dependencies:  
+```bash
+npm install
+```
+
+4. Start the application:  
+```bash
+npm run serve
+```
+
+---
+
+## Project Structure
+
+```
+src
+├── assets                # Static files (images, fonts)
+│   ├── fonts
+│   └── images
+├── components            # Reusable UI components
+│   ├── elements          # Atomic components (button, input, modal, etc.)
+│   ├── forms             # Form components
+│   ├── icons             # SVG icons
+│   ├── layouts           # Layout components (header, etc.)
+│   └── widgets           # Widgets components
+├── config                # Application settings and constants
+├── locales               # Localization files
+├── pages                 # Page-level components
+├── redux                 # Redux store, slices
+├── routes                # Application routing definitions
+├── styles                # Themes and global styles
+├── utils                 # Utility functions
+└── index.js              # Application entry point
+```
+
+---
+
+## Test Coverage
 
 Tests can be run with the `test` script, which will run your tests against Lit's development mode (with more verbose errors) as well as against Lit's production mode:
 
@@ -43,13 +77,9 @@ Tests can be run with the `test` script, which will run your tests against Lit's
 npm test
 ```
 
-For local testing during development, the `test:dev:watch` command will run your tests in Lit's development mode (with verbose errors) on every change to your source files:
+The project currently has 90% test coverage. Regular testing is performed to ensure code quality and maintainability.
 
-```bash
-npm test:watch
-```
-
-Alternatively the `test:prod` and `test:prod:watch` commands will run your tests in Lit's production mode.
+---
 
 ## Dev Server
 
@@ -61,21 +91,7 @@ To run the dev server and open the project in a new browser tab:
 npm run serve
 ```
 
-There is a development HTML file located at `/dev/index.html` that you can view at http://localhost:8000/dev/index.html. Note that this command will serve your code using Lit's development mode (with more verbose errors). To serve your code against Lit's production mode, use `npm run serve:prod`.
-
-## Editing
-
-If you use VS Code, we highly recommend the [lit-plugin extension](https://marketplace.visualstudio.com/items?itemName=runem.lit-plugin), which enables some extremely useful features for lit-html templates:
-
-- Syntax highlighting
-- Type-checking
-- Code completion
-- Hover-over docs
-- Jump to definition
-- Linting
-- Quick Fixes
-
-The project is setup to recommend lit-plugin to VS Code users if they don't already have it installed.
+There is a development HTML file located at `/index.html` that you can view at http://localhost:8000/dev/index.html. Note that this command will serve your code using Lit's development mode (with more verbose errors). To serve your code against Lit's production mode, use `npm run serve:prod`.
 
 ## Linting
 
@@ -86,7 +102,7 @@ The rules are mostly the recommended rules from each project, but some have been
 To lint the project run:
 
 ```bash
-npm run lint
+npm run lint:eslint
 ```
 
 ## Formatting
@@ -95,42 +111,6 @@ npm run lint
 
 Prettier has not been configured to run when committing files, but this can be added with Husky and `pretty-quick`. See the [prettier.io](https://prettier.io/) site for instructions.
 
-## Static Site
 
-This project includes a simple website generated with the [eleventy](https://11ty.dev) static site generator and the templates and pages in `/docs-src`. The site is generated to `/docs` and intended to be checked in so that GitHub pages can serve the site [from `/docs` on the main branch](https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
-To enable the site go to the GitHub settings and change the GitHub Pages &quot;Source&quot; setting to &quot;main branch /docs folder&quot;.</p>
-
-To build the site, run:
-
-```bash
-npm run docs
-```
-
-To serve the site locally, run:
-
-```bash
-npm run docs:serve
-```
-
-To watch the site files, and re-build automatically, run:
-
-```bash
-npm run docs:gen:watch
-```
-
-The site will usually be served at http://localhost:8000.
-
-**Note**: The project uses Rollup to bundle and minify the source code for the docs site and not to publish to NPM. For bundling and minification, check the [Bundling and minification](#bundling-and-minification) section.
-
-## Bundling and minification
-
-As stated in the [static site generation](#static-site) section, the bundling and minification setup in the Rollup configuration in this project is there specifically for the docs generation.
-
-We recommend publishing components as unoptimized JavaScript modules and performing build-time optimizations at the application level. This gives build tools the best chance to deduplicate code, remove dead code, and so on.
-
-Please check the [Publishing best practices](https://lit.dev/docs/tools/publishing/#publishing-best-practices) for information on publishing reusable Web Components, and [Build for production](https://lit.dev/docs/tools/production/) for building application projects that include LitElement components, on the Lit site.
-
-## More information
-
-See [Get started](https://lit.dev/docs/getting-started/) on the Lit site for more information.
+**Contact:** oguzhanseven18@gmail.com

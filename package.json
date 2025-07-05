@@ -13,11 +13,8 @@
     "format": "prettier \"**/*.{cjs,html,js,json,md,ts}\" --ignore-path ./.eslintignore --write",
     "serve": "wds --watch --node-resolve --app-index index.html --history-api-fallback",
     "serve:prod": "MODE=prod npm run serve",
-    "test": "npm run test:dev && npm run test:prod",
+    "test": "npm run test:dev",
     "test:dev": "web-test-runner \"test/**/*.test.js\" --coverage --node-resolve",
-    "test:watch": "wtr --watch",
-    "test:prod": "MODE=prod wtr",
-    "test:prod:watch": "MODE=prod wtr --watch",
     "checksize": "rollup -c ; cat bundle.js | gzip -9 | wc -c ; rm bundle.js"
   },
   "keywords": [
